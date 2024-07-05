@@ -18,10 +18,9 @@ services:
     build:
       context: docker
       dockerfile: Dockerfile
-      args:
-        RUNNER_NAME: test-runner-3
-        RUNNER_LABEL: linux.2xlarge
-        RUNNER_REPO_URL: https://github.com/seemethere/test-repo
-        RUNNER_TOKEN: ${RUNNER_TOKEN}
     environment:
       DOCKER_HOST: tcp://docker-in-docker:2375
+      RUNNER_NAME: test-runner-3
+      RUNNER_LABEL: linux.2xlarge
+      RUNNER_REPO_URL: https://github.com/seemethere/test-repo
+      RUNNER_TOKEN: ${RUNNER_TOKEN}

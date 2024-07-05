@@ -24,19 +24,5 @@ USER root
 RUN /home/runner/actions-runner/bin/installdependencies.sh
 USER runner
 
-ARG RUNNER_NAME
-ARG RUNNER_LABEL
-ARG RUNNER_REPO_URL
-ARG RUNNER_TOKEN
-RUN ./config.sh \
-  --unattended \
-  --replace \
-  --ephemeral \
-  --name "${RUNNER_NAME}" \
-  --work "_work" \
-  --labels "${RUNNER_LABEL}" \
-  --url "${RUNNER_REPO_URL}" \
-  --token "${RUNNER_TOKEN}"
-
 ADD docker-entrypoint.sh docker-entrypoint.sh
 ENTRYPOINT ["bash", "/home/runner/actions-runner/docker-entrypoint.sh"]
